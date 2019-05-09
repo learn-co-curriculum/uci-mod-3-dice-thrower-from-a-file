@@ -24,8 +24,6 @@ separated values") data file by "wrapping" it in a class. It's kinda like
 putting a human in mecha power armor (without the cool intro music): it's still
 an ordinary thing inside, but it's surrounded by **awesome**.
 
-![Mecha Manga 4Eva: Robotech](https://media.giphy.com/media/r1UKKfxA5riJq/giphy.gif)
-
 Before we can power up files with the power of OO, we need to review some facts
 about how programs work with data files.
 
