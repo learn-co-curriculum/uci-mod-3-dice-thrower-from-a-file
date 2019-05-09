@@ -4,11 +4,11 @@
 
 - Read Data from a file
 - Parse Data from a file
-- Create Object-Oriented program
+- Create an Object-Oriented program
 
 ## Introduction
 
-Object Orientation (OO) is a powerful technique that keeps code easy to reason
+Object-Orientation (OO) is a powerful technique that keeps code easy to reason
 about. It wraps data and behaviors into little "cells." This makes code that's
 easier to understand and maintain because we only have to reason about what's
 going on inside of a tiny little "cell." As any human knows, many specialized
@@ -19,7 +19,7 @@ in the real world: `Die`, a `Dog`, or a `DiceRoller`. With practice, you'll see
 how you can make classes that represent other less-tangible things like
 processes, policies, strategies for solving problems.
 
-In this lesson we'll increase the intelligence of a plain old [CSV] ("comma
+In this lab, we'll increase the intelligence of a plain old [CSV][] ("comma
 separated values") data file by "wrapping" it in a class. It's kinda like
 putting a human in mecha power armor (without the cool intro music): it's still
 an ordinary thing inside, but it's surrounded by **awesome**.
@@ -80,7 +80,7 @@ We can use Ruby's built-in [CSV] library to interpret the `.csv` file according
 to the "comma-separated values" format.
 
 In this lab you'll create a class that manages a CSV file. It will turn "data
-from the disk" into "rows of CSV-foratted data." Furthermore, the class will
+from the disk" into "rows of CSV-formatted data." Furthermore, the class will
 provide analysis of the data it possesses (augmenting the powerless file like
 how a mecha armor augments a green-haired anime hero!).
 
@@ -88,7 +88,7 @@ how a mecha armor augments a green-haired anime hero!).
 
 _The lion mechs are "wrappers" to humans in this analogy_
 
-## Create Object-Oriented Program
+## Create an Object-Oriented Program
 
 ### Scenario
 
@@ -106,12 +106,12 @@ The rows in the CSV represent:
 1,Arya,6,"4,3"
 ```
 
-1.  An `id` for the trial
-2.  A participant name (a candidate)
-3.  The maximum number of pips on the die thrown in the next field
-4.  The results of the candidate's throw. Multiple die are separated by a `,`
+1. An `id` for the trial
+2. A participant name (a candidate)
+3. The maximum number of pips on the die thrown in the next field
+4. The results of the candidate's throw. Multiple die are separated by a `,`
 
-So the line above says, in English, "In trial 1, Arya threw six sided dice.
+So the line above says, in English, "In trial 1, Arya threw six-sided dice.
 There were two of them (splitting the last field and counting the numbers),
 their pips were 4 and 3 leading to a total pip-value of `7`."
 
@@ -138,6 +138,7 @@ The tests will guide you in creating a class called `LuckAnalyzer.rb` in
     - `#common_number_of_trials`: Because the database crashed, we're not sure
       how many trials are common to the participants. We need this class to
       tell us the minimum _common_ number of trials.
+
       ```csv
         1,Arya,6,"1,3"
         2,Arya,6,"2,3"
@@ -152,6 +153,7 @@ The tests will guide you in creating a class called `LuckAnalyzer.rb` in
         11,Carl,6,"2,3"
         12,Carl,6,"3,3"
       ```
+
       In this CSV file, we have a `common_number_of_trials` of `3`. "Carl" has the
       fewest trials and so, if we want to compare candidates equally as a
       percentage, we need the denominator to be **`3`**
@@ -173,7 +175,7 @@ all of these tests passing.
 The DoLS would like for you to determine the following:
 
 1.  "Who is the luckiest candidate?" Where:
-2.  "Lucky" is defined as having had a dice roll where the total pips is equal
+2.  "Lucky" is defined as having had a dice roll where the total of all pips is equal
     to `7`
 3.  "Luckiest" is defined as having the most "lucky" rolls within a set of
     size `common_number_of_trials`. We should take as many "lucky" rolls as
@@ -198,13 +200,13 @@ The DoLS would like for you to determine the following:
 
 * As demonstrated earlier, the `common_number_of_trials`  is `3`.
   * Arya has 4 trials, 1 of them is "lucky." We will put as many of her lucky
-    trials into 3 available slots. In the end she has 1/3 "lucky" rolls giving
+    trials into 3 available slots. In the end, she has 1/3 "lucky" rolls giving
     her a 33% lucky rate (rounded).
   * Byron has 5 trials, 2 of them are "lucky." We will put as many of his lucky
-    trials into the 3 available slots. In the end he has 2/3 "lucky" rolls
+    trials into the 3 available slots. In the end, he has 2/3 "lucky" rolls
     giving him a 67% lucky rate (rounded).
   * Carl has 3 trials, 0 of them are "lucky." We will put as many of his lucky
-    trials into the 3 available slots. In the end he has 0/3 "lucky" rolls
+    trials into the 3 available slots. In the end, he has 0/3 "lucky" rolls
     giving him a 0% lucky rate.
 
 The (DoLS) famously asks for new features often, so we want to build this using
@@ -242,11 +244,11 @@ To do so you will need to follow this pseudocoded algorithm
 ```text
 For each row of CSV data
   Find the pips count field, split it on `,`
-    For each sub field create a Die with a hard-set values and save them to an
+    For each subfield, create a Die with a hard-set value and save them to an
       Array
   Take the Array of Die, and load them up into a DiceRoller because they know
     how to determine whether a roll was `lucky?`
-  If the roll was lucky adjust the participant's "lucky percentage"
+  If the roll was lucky, adjust the participant's "lucky percentage"
     Increase their lucky count (numerator) by 1 as its divided by
     `common_number_of_trials` (denominator)
 ```
@@ -270,6 +272,6 @@ next lesson!
 
 ## Resources
 
-- [CSV]
+- [CSV][]
 
-[csv]: https://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html
+[CSV]: https://ruby-doc.org/stdlib-2.0.0/libdoc/csv/rdoc/CSV.html
